@@ -128,6 +128,14 @@ img {
     left: 10px;
     text-align: left;
     color: #c9131a; }
+  .panel__label-l:hover {
+    cursor: pointer; }
+    .panel__label-l:hover polygon {
+      stroke: #64b7ce;
+      stroke-width: 1;
+      fill: #f00; }
+    .panel__label-l:hover .data {
+      color: #fff; }
   .panel__label-r svg {
     top: 24px;
     left: 140px; }
@@ -143,6 +151,14 @@ img {
   .panel__label-r svg {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg); }
+  .panel__label-r:hover {
+    cursor: pointer; }
+    .panel__label-r:hover polygon {
+      stroke: #64b7ce;
+      stroke-width: 1;
+      fill: #7fd13b; }
+    .panel__label-r:hover .data {
+      color: #fff; }
   .panel__pointer {
     margin-top: 5px; }
     .panel__pointer svg {

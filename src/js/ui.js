@@ -1,4 +1,3 @@
-// Start ui.js
 import itemController from './model.js';
 let UIController = (() => {
 
@@ -48,7 +47,6 @@ let UIController = (() => {
 
     let itemBuilt = '';
     let builtAllItems = '';
-
 
     function buildItem(i){
         let randomData = itemController.getRandomBuySell(i);

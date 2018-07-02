@@ -3,13 +3,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-// var styleLintPlugin = require('stylelint-webpack-plugin');
 
 require('es6-promise').polyfill();
 
 module.exports = {
 
-  entry: ['./src/js/main.js', './src/js/model.js', './src/js/controller.js'],
+  entry: ['./src/js/controller.js'],
 
   output: {
     path: __dirname,
@@ -17,18 +16,7 @@ module.exports = {
   },
 
   plugins: [
-    // Specify the resulting CSS filename
     new ExtractTextPlugin('build/css/style.css')//,
-
-    // Stylelint plugin
-//    new styleLintPlugin({
-//      configFile: '.stylelintrc',
-//      context: '',
-//      files: '**/*.scss',
-//      syntax: 'scss',
-//      failOnError: false,
-//      quiet: false
-//    })
   ],
 
   module: {
@@ -63,7 +51,5 @@ module.exports = {
     // Colored output
     colors: true
   },
-
-  // Create Sourcemaps for the bundle
   devtool: 'source-map'
 };

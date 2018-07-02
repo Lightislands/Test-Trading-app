@@ -15,6 +15,10 @@ $pointer-down: #f00;
 $sell-color: #c9131a;
 $buy-color: #68892e;
 
+$hover-border: #64b7ce;
+$label-l-bg: #f00;
+$label-r-bg: #7fd13b;
+
 
 .panel {
   position: relative;
@@ -37,7 +41,6 @@ $buy-color: #68892e;
 
   // Common Label style
   &__label-l, &__label-r {
-
     svg {
       position: absolute;
       width: 130px;
@@ -91,12 +94,22 @@ $buy-color: #68892e;
       top: 22px;
       left: 6px;
     }
-
     .data {
       top: 25px;
       left: 10px;
       text-align: left;
       color: $sell-color;
+    }
+    &:hover {
+      cursor: pointer;
+      polygon {
+        stroke: $hover-border;
+        stroke-width: 1;
+        fill: $label-l-bg;
+      }
+      .data {
+        color: #fff;
+      }
     }
   }
 
@@ -106,7 +119,6 @@ $buy-color: #68892e;
       top: 24px;
       left: 140px;
     }
-
     .data {
       top: 25px;
       right: 10px;
@@ -116,9 +128,19 @@ $buy-color: #68892e;
     .amount {
       justify-content: flex-end;
     }
-
     svg {
       @include transform(rotate(180deg));
+    }
+    &:hover {
+      cursor: pointer;
+      polygon {
+        stroke: $hover-border;
+        stroke-width: 1;
+        fill: $label-r-bg;
+      }
+      .data {
+        color: #fff;
+      }
     }
   }
 
