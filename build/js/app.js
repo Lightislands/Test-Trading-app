@@ -300,14 +300,32 @@ let UIController = (() => {
         builtAllItems += itemBuilt;
     }
 
+    // let buildItemList = setTimeout(function tick() {
+    //     console.log("+++++++++++")
+    //     buildItemList = setTimeout(tick, 1000);
+    // }, 1000);
+
     function buildItemList() {
-        for (let i = 0; i < arrItems.length; i++) {
-            buildItem(i);
-            __WEBPACK_IMPORTED_MODULE_0__model_js__["default"].storeCourseDymanic(i);
-        }
-        let appContainer = document.querySelector(DOM.app);
-        appContainer.innerHTML = builtAllItems;
+        setInterval(function () {
+            builtAllItems = '';
+            for (let i = 0; i < arrItems.length; i++) {
+                buildItem(i);
+                __WEBPACK_IMPORTED_MODULE_0__model_js__["default"].storeCourseDymanic(i);
+            }
+            let appContainer = document.querySelector(DOM.app);
+            appContainer.innerHTML = builtAllItems;
+        }, 2000);
     }
+
+    // function buildItemList(){
+    //     for(let i=0; i<arrItems.length; i++){
+    //         buildItem(i);
+    //         itemController.storeCourseDymanic(i);
+    //     }
+    //     let appContainer = document.querySelector(DOM.app);
+    //     appContainer.innerHTML = builtAllItems;
+    // }
+
 
     return {
         buildItemList: buildItemList,

@@ -77,17 +77,17 @@ let UIController = (() => {
         builtAllItems += itemBuilt;
     }
 
-
-
     function buildItemList(){
-        for(let i=0; i<arrItems.length; i++){
-            buildItem(i);
-            itemController.storeCourseDymanic(i);
-        }
-        let appContainer = document.querySelector(DOM.app);
-        appContainer.innerHTML = builtAllItems;
+        setInterval(function() {
+            builtAllItems = '';
+                for(let i=0; i<arrItems.length; i++){
+                    buildItem(i);
+                    itemController.storeCourseDymanic(i);
+                }
+                let appContainer = document.querySelector(DOM.app);
+                appContainer.innerHTML = builtAllItems;
+        }, 1000);
     }
-
 
     return {
         buildItemList: buildItemList,
