@@ -1,0 +1,9 @@
+$lg: 1200px;
+
+.container {
+  max-width: $lg;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

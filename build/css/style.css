@@ -1,0 +1,159 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+img {
+  vertical-align: bottom;
+  border: 0;
+  max-width: 100%;
+  height: auto;
+  width: auto\9; }
+
+/*--END-Reset--*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.panel {
+  position: relative;
+  margin: 10px;
+  width: 276px;
+  height: 100px;
+  background-color: #f0f0f1;
+  border: 1px solid #a5a5a5;
+  text-align: center; }
+  .panel__head {
+    width: 100%;
+    height: 17px;
+    padding-top: 3px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5b5b5c; }
+  .panel__label-l svg, .panel__label-r svg {
+    position: absolute;
+    width: 130px;
+    height: 58px; }
+  .panel__label-l polygon, .panel__label-r polygon {
+    stroke: #d1d2d2;
+    stroke-width: 1;
+    fill: #fff; }
+  .panel__label-l .data, .panel__label-r .data {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    padding: 4px;
+    font-weight: bold; }
+    .panel__label-l .data .buy-sell, .panel__label-r .data .buy-sell {
+      font-size: 0.6rem; }
+    .panel__label-l .data .amount, .panel__label-r .data .amount {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+          -ms-flex-align: end;
+              align-items: flex-end;
+      height: 25px;
+      margin-top: 10px;
+      letter-spacing: 1px; }
+      .panel__label-l .data .amount span, .panel__label-r .data .amount span {
+        display: block; }
+      .panel__label-l .data .amount span:first-child, .panel__label-r .data .amount span:first-child {
+        font-size: 1rem; }
+      .panel__label-l .data .amount span:nth-child(2), .panel__label-r .data .amount span:nth-child(2) {
+        font-size: 1.8rem; }
+      .panel__label-l .data .amount span:nth-child(3), .panel__label-r .data .amount span:nth-child(3) {
+        margin-top: -6px;
+        font-size: 1rem;
+        -ms-flex-item-align: start;
+            align-self: flex-start; }
+  .panel__label-l svg {
+    top: 22px;
+    left: 6px; }
+  .panel__label-l .data {
+    top: 25px;
+    left: 10px;
+    text-align: left;
+    color: #c9131a; }
+  .panel__label-r svg {
+    top: 24px;
+    left: 140px; }
+  .panel__label-r .data {
+    top: 25px;
+    right: 10px;
+    text-align: right;
+    color: #68892e; }
+  .panel__label-r .amount {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
+  .panel__label-r svg {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  .panel__pointer {
+    margin-top: 5px; }
+    .panel__pointer svg {
+      width: 10px;
+      height: 20px; }
+    .panel__pointer .up polygon {
+      fill: #008000; }
+    .panel__pointer .down {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg); }
+      .panel__pointer .down polygon {
+        fill: #f00; }
+
+/*# sourceMappingURL=style.css.map*/
