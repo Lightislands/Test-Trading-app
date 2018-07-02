@@ -148,12 +148,12 @@ img {
     .panel__pointer svg {
       width: 10px;
       height: 20px; }
-    .panel__pointer .up polygon {
-      fill: #008000; }
-    .panel__pointer .down {
+    .panel__pointer .up {
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg); }
-      .panel__pointer .down polygon {
-        fill: #f00; }
+      .panel__pointer .up polygon {
+        fill: #008000; }
+    .panel__pointer .down polygon {
+      fill: #f00; }
 
 /*# sourceMappingURL=style.css.map*/

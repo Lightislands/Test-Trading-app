@@ -23,6 +23,14 @@ let controller = (() => {
         UIController.buildItemList();
     };
 
+
+
+    // let displayItems = setTimeout(function tick() {
+    //     UIController.builtAllItems = '';
+    //     UIController.buildItemList();
+    //     displayItems = setTimeout(tick, 1000);
+    // }, 1000);
+
     return {
         init: function(){
             console.log('Init');

@@ -129,11 +129,13 @@ $buy-color: #68892e;
       width: 10px;
       height: 20px;
     }
-    .up polygon {
-      fill: $pointer-up;
+    .up {
+      @include transform(rotate(180deg));
+      polygon {
+        fill: $pointer-up;
+      }
     }
     .down {
-      @include transform(rotate(180deg));
       polygon {
         fill: $pointer-down;
       }

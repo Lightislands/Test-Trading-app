@@ -11,7 +11,40 @@ let itemController = (() => {
         {"pair":"EUR JPY", "buy":120.589, "sell":120.491}
     ];
 
-    function random(e){
+    // Course dynamic states
+    let storage = {
+
+        dynamic: [],
+
+        setDynamicData: function(i, randomBuy, randomSell) {
+
+            // Init storage.dynamic
+            if(this.dynamic.length != arrItems.length){
+                for(let c=0; c<arrItems.length; c++ ){
+                    this.dynamic.push({indexBuy: 1, indexSell: 1, buy: 0, sell: 0});
+                }
+            }
+
+            console.log("Dynamic Init");
+            console.log(this.dynamic);
+
+            // Check increase/decrease index comparing to current one
+            this.dynamic[i].buy < randomBuy ? this.dynamic[i].indexBuy = 1 : this.dynamic[i].indexBuy = 0;
+            this.dynamic[i].sell < randomSell ? this.dynamic[i].indexSell = 1 : this.dynamic[i].indexSell = 0;
+            this.dynamic[i].buy = randomBuy;
+            this.dynamic[i].sell = randomSell;
+        },
+
+        getDynamicData: function(i){
+            if(this.dynamic[i]){
+                console.log("Dynamic");
+                console.log(this.dynamic[i].indexBuy);
+                return this.dynamic[i].indexBuy;
+            }
+        }
+    };
+                                                        // ------- Get Random percent
+    function getRandom(e){
         let num = Math.floor(Math.random() * 10) + 1; // 1 - 10
         let upDown = Math.round((Math.random() * 1) + 0) === 0; // true/false
         let percent = e * (num / 100);
@@ -22,11 +55,27 @@ let itemController = (() => {
             return e - percent;
         }
     }
-    console.log("Random amount - " + random(20));
+                                                        // ------- Get Random Buy/Sell amount
+    function getRandomBuySell(i){
+        let random = {};
+        random.buy = getRandom(arrItems[i].buy);
+        random.sell = getRandom(arrItems[i].sell);
+        return random;
+    }
+
+    function storeCourseDymanic(i){
+        let randomData = getRandomBuySell(i);
+        storage.setDynamicData(i, randomData.buy, randomData.sell);
+    }
+
 
 
     return {
-        arrItems: arrItems
+        arrItems: arrItems,
+        getRandom: getRandom,
+        storage: storage,
+        getRandomBuySell: getRandomBuySell,
+        storeCourseDymanic: storeCourseDymanic
     };
 
 })();

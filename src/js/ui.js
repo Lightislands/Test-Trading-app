@@ -6,6 +6,7 @@ let UIController = (() => {
         app: '#app'
     };
 
+    // Init Items
     let arrItems = itemController.arrItems;
 
     let item = '<div id="app" class="container"> \
@@ -19,13 +20,13 @@ let UIController = (() => {
         <div class="buy-sell">Sell <span>USD</span></div> \
         <div class="amount"> \
         <span>%buy-a%</span> \
-        <span>04</span> \
-        <span>3</span> \
+        <span>%buy-b%</span> \
+        <span>%buy-c%</span> \
         </div> \
         </div> \
         </div> \
         <div class="panel__pointer"> \
-        <svg class="up"> \
+        <svg class="%up-down%"> \
         <polygon points="10 0,5 20,0 0"></polygon> \
         </svg> \
         </div> \
@@ -36,9 +37,9 @@ let UIController = (() => {
         <div class="data"> \
         <div class="buy-sell">Buy <span>USD</span></div> \
         <div class="amount"> \
-        <span>0.99</span> \
-        <span>04</span> \
-        <span>3</span> \
+        <span>%sell-a%</span> \
+        <span>%sell-b%</span> \
+        <span>%sell-c%</span> \
         </div> \
         </div> \
         </div> \
@@ -48,16 +49,40 @@ let UIController = (() => {
     let itemBuilt = '';
     let builtAllItems = '';
 
+
     function buildItem(i){
+        let randomData = itemController.getRandomBuySell(i);
+        let dynamic = itemController.storage.getDynamicData(i) === 1 ? 'up' : 'down';
+
+        let buy = {};
+        buy.a = randomData.buy.toString().substring(0, 4);
+        buy.b = randomData.buy.toString().substring(4, 6);
+        buy.c = randomData.buy.toString().substring(6, 7);
+
+        let sell = {};
+        sell.a = randomData.sell.toString().substring(0, 4);
+        sell.b = randomData.sell.toString().substring(4, 6);
+        sell.c = randomData.sell.toString().substring(6, 7);
+
         itemBuilt = item.replace(/%pair%/g, arrItems[i].pair);
-        itemBuilt = itemBuilt.replace(/%buy-a%/g, arrItems[i].buy);
+        itemBuilt = itemBuilt.replace(/%buy-a%/g, buy.a);
+        itemBuilt = itemBuilt.replace(/%buy-b%/g, buy.b);
+        itemBuilt = itemBuilt.replace(/%buy-c%/g, buy.c);
+
+        itemBuilt = itemBuilt.replace(/%up-down%/g, dynamic);
+
+        itemBuilt = itemBuilt.replace(/%sell-a%/g, sell.a);
+        itemBuilt = itemBuilt.replace(/%sell-b%/g, sell.b);
+        itemBuilt = itemBuilt.replace(/%sell-c%/g, sell.c);
         builtAllItems += itemBuilt;
     }
+
+
 
     function buildItemList(){
         for(let i=0; i<arrItems.length; i++){
             buildItem(i);
-
+            itemController.storeCourseDymanic(i);
         }
         let appContainer = document.querySelector(DOM.app);
         appContainer.innerHTML = builtAllItems;
