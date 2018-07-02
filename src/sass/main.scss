@@ -23,7 +23,6 @@ $label-r-bg: #7fd13b;
 .panel {
   position: relative;
   margin: 10px;
-  //float: left;
   width: 276px;
   height: 100px;
   background-color: $panel-bg;
@@ -51,7 +50,6 @@ $label-r-bg: #7fd13b;
       stroke-width: 1;
       fill: $label-bg;
     }
-
 
     .data {
       position: absolute;
