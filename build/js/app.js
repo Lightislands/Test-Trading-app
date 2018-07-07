@@ -1,1 +1,266 @@
-'use strict';(function(a){function b(f){if(d[f])return d[f].exports;var g=d[f]={i:f,l:!1,exports:{}};return a[f].call(g.exports,g,g.exports,b),g.l=!0,g.exports}var d={};return b.m=a,b.c=d,b.d=function(f,g,h){b.o(f,g)||Object.defineProperty(f,g,{configurable:!1,enumerable:!0,get:h})},b.n=function(f){var g=f&&f.__esModule?function(){return f['default']}:function(){return f};return b.d(g,'a',g),g},b.o=function(f,g){return Object.prototype.hasOwnProperty.call(f,g)},b.p='',b(b.s=0)})([function(a,b,d){a.exports=d(1)},function(a,b,d){'use strict';Object.defineProperty(b,'__esModule',{value:!0});var f=d(3);d(2);var g=function(){var h=function(){f.a.buildItemList()};return{init:function init(){console.log('Init'),h()}}}();g.init()},function(){},function(a,b,d){'use strict';var f=d(4),g=function(){function h(p){var q=f.a.getRandomBuySell(p),r=1===f.a.storage.getDynamicData(p)?'up':'down',s={};s.a=q.buy.toString().substring(0,4),s.b=q.buy.toString().substring(4,6),s.c=q.buy.toString().substring(6,7);var t={};t.a=q.sell.toString().substring(0,4),t.b=q.sell.toString().substring(4,6),t.c=q.sell.toString().substring(6,7),n='<div id="app" class="container">         <div class="panel">         <div class="panel__head">%pair%</div>         <div class="panel__label-l">         <svg>         <polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon>         </svg>         <div class="data">         <div class="buy-sell">Sell <span>USD</span></div>         <div class="amount">         <span>%buy-a%</span>         <span>%buy-b%</span>         <span>%buy-c%</span>         </div>         </div>         </div>         <div class="panel__pointer">         <svg class="%up-down%">         <polygon points="10 0,5 20,0 0"></polygon>         </svg>         </div>         <div class="panel__label-r">         <svg>         <polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon>         </svg>         <div class="data">         <div class="buy-sell">Buy <span>USD</span></div>         <div class="amount">         <span>%sell-a%</span>         <span>%sell-b%</span>         <span>%sell-c%</span>         </div>         </div>         </div>         </div>         </div>'.replace(/%pair%/g,l[p].pair),n=n.replace(/%buy-a%/g,s.a),n=n.replace(/%buy-b%/g,s.b),n=n.replace(/%buy-c%/g,s.c),n=n.replace(/%up-down%/g,r),n=n.replace(/%sell-a%/g,t.a),n=n.replace(/%sell-b%/g,t.b),n=n.replace(/%sell-c%/g,t.c),o+=n}var k={app:'#app'},l=f.a.arrItems,n='',o='';return{buildItemList:function(){setInterval(function(){o='';for(var p=0;p<l.length;p++)h(p),f.a.storeCourseDymanic(p);var q=document.querySelector(k.app);q.innerHTML=o},1e3)},getDOMstrings:function getDOMstrings(){return DOMstrings}}}();b.a=g},function(a,b){'use strict';var f=function(){function g(m){var n=Math.floor(10*Math.random())+1,o=0===Math.round(1*Math.random()+0),p=m*(n/100);return o?m+p:m-p}function h(m){var n={buy:g(k[m].buy),sell:g(k[m].sell)};return n}var k=[{pair:'USD CHF',buy:0.99143,sell:0.99043},{pair:'GBP USD',buy:1.28495,sell:1.2836},{pair:'GBP CHF',buy:1.27378,sell:1.27147},{pair:'EUR SEK',buy:9.632,sell:9.6055},{pair:'USD JPY',buy:110.467,sell:110.417},{pair:'EUR JPY',buy:120.589,sell:120.491}],l={dynamic:[],setDynamicData:function setDynamicData(m,n,o){if(this.dynamic.length!=k.length)for(var p=0;p<k.length;p++)this.dynamic.push({indexBuy:1,indexSell:1,buy:0,sell:0});this.dynamic[m].indexBuy=this.dynamic[m].buy<n?1:0,this.dynamic[m].indexSell=this.dynamic[m].sell<o?1:0,this.dynamic[m].buy=n,this.dynamic[m].sell=o},getDynamicData:function getDynamicData(m){if(this.dynamic[m])return this.dynamic[m].indexBuy}};return{arrItems:k,getRandom:g,storage:l,getRandomBuySell:h,storeCourseDymanic:function(m){var n=h(m);l.setDynamicData(m,n.buy,n.sell)}}}();b.a=f}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(1);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ui_js__ = __webpack_require__(3);
+
+
+__webpack_require__(2);
+
+
+
+let controller = (() => {
+
+    let displayItems = () => {
+        __WEBPACK_IMPORTED_MODULE_0__ui_js__["a" /* default */].buildItemList();
+    };
+
+    return {
+        init: function () {
+            console.log('Init');
+            displayItems();
+        }
+    };
+})();
+
+controller.init();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__model_js__ = __webpack_require__(4);
+
+let UIController = (() => {
+
+    let DOM = {
+        app: '#app'
+    };
+
+    // Init Items
+    let arrItems = __WEBPACK_IMPORTED_MODULE_0__model_js__["a" /* default */].arrItems;
+
+    let item = '<div class="panel"> \
+        <div class="panel__head">%pair%</div><div class="panel__label-l"> \
+        <svg><polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon></svg> \
+        <div class="data"><div class="buy-sell">Sell <span>USD</span></div><div class="amount"> \
+        <span>%buy-a%</span> \
+        <span>%buy-b%</span> \
+        <span>%buy-c%</span> \
+        </div></div></div><div class="panel__pointer"> \
+        <svg class="%up-down%"><polygon points="10 0,5 20,0 0"></polygon></svg> \
+        </div><div class="panel__label-r"> \
+        <svg><polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon></svg> \
+        <div class="data"><div class="buy-sell">Buy <span>USD</span></div><div class="amount"> \
+        <span>%sell-a%</span> \
+        <span>%sell-b%</span> \
+        <span>%sell-c%</span> \
+        </div></div></div></div>';
+
+    let itemBuilt = '';
+    let builtAllItems = '';
+
+    function buildItem(i) {
+        let randomData = __WEBPACK_IMPORTED_MODULE_0__model_js__["a" /* default */].getRandomBuySell(i);
+        let dynamic = __WEBPACK_IMPORTED_MODULE_0__model_js__["a" /* default */].storage.getDynamicData(i) === 1 ? 'up' : 'down';
+
+        let buy = {};
+        buy.a = randomData.buy.toString().substring(0, 4);
+        buy.b = randomData.buy.toString().substring(4, 6);
+        buy.c = randomData.buy.toString().substring(6, 7);
+
+        let sell = {};
+        sell.a = randomData.sell.toString().substring(0, 4);
+        sell.b = randomData.sell.toString().substring(4, 6);
+        sell.c = randomData.sell.toString().substring(6, 7);
+
+        itemBuilt = item.replace(/%pair%/g, arrItems[i].pair);
+        itemBuilt = itemBuilt.replace(/%buy-a%/g, buy.a);
+        itemBuilt = itemBuilt.replace(/%buy-b%/g, buy.b);
+        itemBuilt = itemBuilt.replace(/%buy-c%/g, buy.c);
+
+        itemBuilt = itemBuilt.replace(/%up-down%/g, dynamic);
+
+        itemBuilt = itemBuilt.replace(/%sell-a%/g, sell.a);
+        itemBuilt = itemBuilt.replace(/%sell-b%/g, sell.b);
+        itemBuilt = itemBuilt.replace(/%sell-c%/g, sell.c);
+        builtAllItems += itemBuilt;
+    }
+
+    function buildItemList() {
+        setInterval(function () {
+            builtAllItems = '';
+            for (let i = 0; i < arrItems.length; i++) {
+                buildItem(i);
+                __WEBPACK_IMPORTED_MODULE_0__model_js__["a" /* default */].storeCourseDymanic(i);
+            }
+            let appContainer = document.querySelector(DOM.app);
+            appContainer.innerHTML = builtAllItems;
+        }, 1000);
+    }
+
+    return {
+        buildItemList: buildItemList,
+        getDOMstrings: function () {
+            return DOMstrings;
+        }
+    };
+})();
+/* harmony default export */ __webpack_exports__["a"] = (UIController);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// Start model.js
+
+let itemController = (() => {
+
+    let arrItems = [{ "pair": "USD CHF", "buy": 0.99143, "sell": 0.99043 }, { "pair": "GBP USD", "buy": 1.28495, "sell": 1.2836 }, { "pair": "GBP CHF", "buy": 1.27378, "sell": 1.27147 }, { "pair": "EUR SEK", "buy": 9.632, "sell": 9.6055 }, { "pair": "USD JPY", "buy": 110.467, "sell": 110.417 }, { "pair": "EUR JPY", "buy": 120.589, "sell": 120.491 }];
+
+    // Course dynamic states
+    let storage = {
+
+        dynamic: [],
+
+        setDynamicData: function (i, randomBuy, randomSell) {
+            // Init storage.dynamic
+            if (this.dynamic.length != arrItems.length) {
+                for (let c = 0; c < arrItems.length; c++) {
+                    this.dynamic.push({ indexBuy: 1, indexSell: 1, buy: 0, sell: 0 });
+                }
+            }
+
+            // Check increase/decrease index comparing to current one
+            this.dynamic[i].buy < randomBuy ? this.dynamic[i].indexBuy = 1 : this.dynamic[i].indexBuy = 0;
+            this.dynamic[i].sell < randomSell ? this.dynamic[i].indexSell = 1 : this.dynamic[i].indexSell = 0;
+            this.dynamic[i].buy = randomBuy;
+            this.dynamic[i].sell = randomSell;
+        },
+
+        getDynamicData: function (i) {
+            if (this.dynamic[i]) {
+                return this.dynamic[i].indexBuy;
+            }
+        }
+    };
+    // ------- Get Random percent
+    function getRandom(e) {
+        let num = Math.floor(Math.random() * 10) + 1; // 1 - 10
+        let upDown = Math.round(Math.random() * 1 + 0) === 0; // up/down
+        let percent = e * (num / 100);
+        if (upDown) {
+            return e + percent;
+        } else {
+            return e - percent;
+        }
+    }
+    // ------- Get Random Buy/Sell amount
+    function getRandomBuySell(i) {
+        let random = {};
+        random.buy = getRandom(arrItems[i].buy);
+        random.sell = getRandom(arrItems[i].sell);
+        return random;
+    }
+
+    function storeCourseDymanic(i) {
+        let randomData = getRandomBuySell(i);
+        storage.setDynamicData(i, randomData.buy, randomData.sell);
+    }
+
+    return {
+        arrItems: arrItems,
+        getRandom: getRandom,
+        storage: storage,
+        getRandomBuySell: getRandomBuySell,
+        storeCourseDymanic: storeCourseDymanic
+    };
+})();
+
+/* harmony default export */ __webpack_exports__["a"] = (itemController);
+
+/***/ })
+/******/ ]);
+//# sourceMappingURL=app.js.map

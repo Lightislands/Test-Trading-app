@@ -8,42 +8,22 @@ let UIController = (() => {
     // Init Items
     let arrItems = itemController.arrItems;
 
-    let item = '<div id="app" class="container"> \
-        <div class="panel"> \
-        <div class="panel__head">%pair%</div> \
-        <div class="panel__label-l"> \
-        <svg> \
-        <polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon> \
-        </svg> \
-        <div class="data"> \
-        <div class="buy-sell">Sell <span>USD</span></div> \
-        <div class="amount"> \
+    let item = '<div class="panel"> \
+        <div class="panel__head">%pair%</div><div class="panel__label-l"> \
+        <svg><polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon></svg> \
+        <div class="data"><div class="buy-sell">Sell <span>USD</span></div><div class="amount"> \
         <span>%buy-a%</span> \
         <span>%buy-b%</span> \
         <span>%buy-c%</span> \
-        </div> \
-        </div> \
-        </div> \
-        <div class="panel__pointer"> \
-        <svg class="%up-down%"> \
-        <polygon points="10 0,5 20,0 0"></polygon> \
-        </svg> \
-        </div> \
-        <div class="panel__label-r"> \
-        <svg> \
-        <polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon> \
-        </svg> \
-        <div class="data"> \
-        <div class="buy-sell">Buy <span>USD</span></div> \
-        <div class="amount"> \
+        </div></div></div><div class="panel__pointer"> \
+        <svg class="%up-down%"><polygon points="10 0,5 20,0 0"></polygon></svg> \
+        </div><div class="panel__label-r"> \
+        <svg><polygon points="4 55,5 57,102 57,105 56,125 38,127 34,127 27,125 23,106 5,103 3,6 3,4 5"></polygon></svg> \
+        <div class="data"><div class="buy-sell">Buy <span>USD</span></div><div class="amount"> \
         <span>%sell-a%</span> \
         <span>%sell-b%</span> \
         <span>%sell-c%</span> \
-        </div> \
-        </div> \
-        </div> \
-        </div> \
-        </div>';
+        </div></div></div></div>';
 
     let itemBuilt = '';
     let builtAllItems = '';
